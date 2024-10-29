@@ -7,7 +7,7 @@ local validator = {}
 ---@param expect {handler_was_called:boolean,msg_pattern:string,stack_trace_pattern:string}
 validator.error_with_stack_trace = function(got, expect) end
 
-describe("#ulf.lib.fs", function()
+describe("#ulf.fs", function()
 	---@type ulf.lib.fs
 	local fs
 	---@type uv
@@ -15,7 +15,7 @@ describe("#ulf.lib.fs", function()
 
 	before_each(function()
 		uv = vim and vim.uv or require("luv")
-		package.loaded["ulf.lib.fs"] = nil ---@diagnostic disable-line: no-unknown
+		package.loaded["ulf.fs"] = nil ---@diagnostic disable-line: no-unknown
 		local platform_mock = {
 			path_sep = "/",
 			pathvar_sep = ":",
@@ -41,7 +41,7 @@ describe("#ulf.lib.fs", function()
 		})
 
 		package.loaded["ulf.lib.platform"] = platform_mock
-		fs = require("ulf.lib.fs")
+		fs = require("ulf.fs")
 	end)
 
 	after_each(function()
